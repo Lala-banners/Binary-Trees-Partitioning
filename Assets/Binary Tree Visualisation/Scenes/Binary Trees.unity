@@ -342,5 +342,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2ee4b5fd8887f84d99a68031210a490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nodeCount: 8
+  nodeCount: 5
   nodeRange: {x: 10, y: 100}

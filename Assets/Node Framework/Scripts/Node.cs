@@ -22,6 +22,7 @@ namespace NodeFramework
                 text.text = val.ToString();
             }
         }
+
         public Node Left { get; set; } = null;
         public Node Right { get; set; } = null;
         public NodeType Type { get; private set; } = NodeType.Root;

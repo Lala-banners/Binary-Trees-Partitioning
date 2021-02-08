@@ -1,4 +1,5 @@
 using NodeFramework;
+using UnityEngine;
 
 public class BinaryTree 
 {
@@ -31,7 +32,43 @@ public class BinaryTree
             _root.Right.Setup(_root, NodeType.Right);
         }
 
+        //Connect the nodes here
+        ConnectorVisuals(_root);
+
         //Root node has been set so return the node
         return _root;
+    }
+
+    /// <summary>
+    /// Connects the child nodes via line renderer to the root node.
+    /// </summary>
+    private void ConnectorVisuals(Node _root)
+    {
+        if (_root.Left != null)
+        {
+            //The left node exists so connect it
+            _root.LeftConnector.positionCount = 2;
+            _root.LeftConnector.SetPosition(0, _root.transform.position);
+            _root.LeftConnector.SetPosition(1, _root.Left.transform.position);
+        }
+        else
+        {
+            _root.LeftConnector.positionCount = 0;
+        }
+
+        if (_root.Right != null)
+        {
+            _root.RightConnector.positionCount = 2;
+            _root.RightConnector.SetPosition(0, _root.transform.position);
+            _root.RightConnector.SetPosition(1, _root.Right.transform.position);
+        }
+        else
+        {
+            _root.RightConnector.positionCount = 0;
+        }
+
+        
+        
+        
     }
 }
