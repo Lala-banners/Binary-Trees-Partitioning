@@ -66,9 +66,30 @@ public class BinaryTree
         {
             _root.RightConnector.positionCount = 0;
         }
+    }
 
-        
-        
-        
+    //Look through the nodes to travel the path function - needs root node and searching node
+    public void Traverse(Node _root, Node _search)
+    {
+        if (_root == null)
+        {
+            return;
+        }
+
+        _root.Activate();
+
+        if (_root == _search)
+        {
+            return;
+        }
+
+        else if(_search < _root) //If the node we are looking for value is less than the root, recurse and activate left node
+        {
+            Traverse(_root.Left, _search); //Make the root left
+        }
+        else //If the node we are looking for value is greater than the root, recurse and activate right node
+        {
+            Traverse(_root.Right, _search); //Make the root right
+        }
     }
 }

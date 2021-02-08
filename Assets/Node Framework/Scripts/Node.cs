@@ -35,6 +35,10 @@ namespace NodeFramework
         private LineRenderer leftConnector;
         [SerializeField]
         private LineRenderer rightConnector;
+        [SerializeField]
+        private MeshRenderer meshRenderer;
+        [SerializeField]
+        private Color activeColor = Color.magenta;
 
         private float separation = 0;
         private int val = 0;
@@ -115,6 +119,17 @@ namespace NodeFramework
             return val.GetHashCode();
         }
         #endregion
+
+        private void OnMouseUpAsButton()
+        {
+            //Highlight the path to this node HERE
+            NodeGenerator.Tree.Traverse(NodeGenerator.Tree.Root, this);
+        }
+
+        public void Activate()
+        {
+            meshRenderer.material.color = activeColor;
+        }
 
         public void Setup(Node _parent, NodeType _type) //Takes parent node and moves it
         {

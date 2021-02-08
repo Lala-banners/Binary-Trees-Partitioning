@@ -12,7 +12,7 @@ public class NodeGenerator : MonoBehaviour
     private Vector2Int nodeRange = new Vector2Int(10, 100);
 
     //Reference to binary tree, create a binary tree first
-    private BinaryTree tree = new BinaryTree();
+    public static BinaryTree Tree = new BinaryTree();
 
     /// <summary>
     /// Whenever a variable is changed, this runs. Modifies the variables as we change them.
@@ -42,7 +42,7 @@ public class NodeGenerator : MonoBehaviour
             Node newNode = NodeFactory.Create(numbers[numbers.Count - 1]);
 
             //Insert the new node into the tree. Reset Root every time
-            tree.Root = tree.Insert(tree.Root, newNode);
+            Tree.Root = Tree.Insert(Tree.Root, newNode);
 
             //Remove the last item in the list
             numbers.RemoveAt(numbers.Count - 1);
